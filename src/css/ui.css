@@ -1,0 +1,262 @@
+html,
+body {
+  font-family: Verdana, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #DDDDDD;
+}
+#accessEnabler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: inline-block;
+  visibility: visible;
+}
+.header {
+  height: 90px;
+  background-color: rgba(136, 136, 136, 0.8);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(136, 136, 136, 0.8)), to(rgba(0, 0, 0, 0.8)));
+  background: -webkit-linear-gradient(top, rgba(136, 136, 136, 0.8), rgba(0, 0, 0, 0.8));
+  background: -moz-linear-gradient(top, rgba(136, 136, 136, 0.8), rgba(0, 0, 0, 0.8));
+  background: -ms-linear-gradient(top, rgba(136, 136, 136, 0.8), rgba(0, 0, 0, 0.8));
+  -ms-filter: gradient(start=@ieStartColor,end=@ieEndColor);
+  background: -o-linear-gradient(top, rgba(136, 136, 136, 0.8), rgba(0, 0, 0, 0.8));
+  background: -linear-gradient(top, rgba(136, 136, 136, 0.8), rgba(0, 0, 0, 0.8));
+  margin-bottom: 30px;
+}
+.header .auth {
+  display: inline-block;
+  float: right;
+  font-weight: normal;
+  margin: 1em;
+}
+.header .auth .providerLogo {
+  display: none;
+}
+.header .auth .authWrapper {
+  display: none;
+  width: 200px;
+  height: 40px;
+}
+.header .auth .authWrapper .authN,
+.header .auth .authWrapper .noAuthN {
+  display: none;
+}
+.content {
+  height: 100%;
+  padding: 30px;
+}
+.playerWrapper {
+  float: left;
+  margin: 0 30px;
+}
+.playerWrapper .video-js {
+  height: 270px;
+  width: 480px;
+  margin-top: 100px;
+}
+.playerWrapper .video-js.vjs-waiting div,
+.playerWrapper .video-js.vjs-waiting video {
+  visibility: hidden;
+}
+.playerWrapper .video-js.vjs-waiting .vjs-loading-spinner {
+  visibility: visible;
+  display: block;
+}
+.playerWrapper:not(.videoPlayback) .video-js div,
+.playerWrapper:not(.videoPlayback) .video-js video {
+  visibility: hidden;
+}
+.playerWrapper.authorizing .video-js div,
+.playerWrapper.authorizing .video-js video {
+  visibility: hidden;
+}
+.playerWrapper.authorizing .video-js .vjs-loading-spinner {
+  visibility: visible;
+  display: block;
+}
+.playlist {
+  float: left;
+  width: 740px;
+  height: 560px;
+  background: rgba(255, 255, 255, 0.7);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.playlist ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+}
+.playlist ul li {
+  float: left;
+  width: 120px;
+  height: 150px;
+  margin: 0 10px 35px 10px;
+}
+.playlist ul li.protected a {
+  background: #aadbff url('../assets/ico_unlock.png') 0 0 no-repeat;
+}
+.playlist ul li.protected a:hover {
+  background-color: #6AABDD;
+}
+.playlist ul li a {
+  position: relative;
+  background-color: #99BB00;
+  color: #777777;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 15px 5px 10px;
+  text-decoration: none;
+}
+.playlist ul li a:hover {
+  background-color: #5A9B00;
+  color: #222222;
+}
+.playlist ul li a:hover img {
+  filter: grayscale(0%);
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+}
+.playlist ul li a h5 {
+  margin: 0;
+  padding: 0;
+}
+.playlist ul li a img {
+  position: absolute;
+  bottom: 12px;
+  left: 32px;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+}
+.playlist.locked li.protected a {
+  cursor: not-allowed;
+  background: #cccccc url('../assets/ico_lock.png') 0 0 no-repeat;
+  color: #AAAAAA;
+}
+.playlist.locked li.protected a:hover {
+  background-color: #C0C0C0;
+  color: #AAAAAA;
+}
+.playlist.locked li.protected a:hover img {
+  filter: grayscale(70%);
+  -webkit-filter: grayscale(70%);
+  -moz-filter: grayscale(70%);
+  -o-filter: grayscale(70%);
+  -ms-filter: grayscale(70%);
+}
+.providerSelector {
+  width: 775px;
+  height: 400px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.providerLoginWrapper {
+  display: none;
+}
+.providerSelector,
+.providerLoginWrapper {
+  font-family: verdana, sans-serif;
+  z-index: 99;
+  position: absolute;
+  margin: auto;
+}
+.providerSelector .providerListHeader,
+.providerLoginWrapper .providerListHeader,
+.providerSelector .providerLoginWrapperHeader,
+.providerLoginWrapper .providerLoginWrapperHeader {
+  width: 100%;
+  height: 30px;
+  margin-top: -15px;
+  margin-left: 15px;
+}
+.providerSelector .providerListHeader .btClose,
+.providerLoginWrapper .providerListHeader .btClose,
+.providerSelector .providerLoginWrapperHeader .btClose,
+.providerLoginWrapper .providerLoginWrapperHeader .btClose {
+  position: relative;
+  top: 12px;
+  width: 30px;
+  height: 30px;
+  padding: 1px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  background: #DD1616;
+  border: 1px solid #6DB1D9;
+  color: #BBBBBB;
+  float: right;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+.providerSelector .providerListHeader .btClose:hover,
+.providerLoginWrapper .providerListHeader .btClose:hover,
+.providerSelector .providerLoginWrapperHeader .btClose:hover,
+.providerLoginWrapper .providerLoginWrapperHeader .btClose:hover {
+  background: #FF3636;
+  border-color: #5383A5;
+  color: #FFFFFF;
+}
+.providerSelector .providerListContainer,
+.providerLoginWrapper .providerListContainer {
+  background: #FFFFFF;
+  border: 2px solid #777777;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  padding: 20px;
+  height: 310px;
+}
+.providerSelector .providerListContainer h4,
+.providerLoginWrapper .providerListContainer h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.providerSelector .providerListContainer .providerList,
+.providerLoginWrapper .providerListContainer .providerList {
+  text-align: center;
+}
+.providerSelector .providerListContainer .providerList a,
+.providerLoginWrapper .providerListContainer .providerList a {
+  text-decoration: none;
+  color: #77CCF5;
+  display: block;
+  margin: 15px 5px;
+  float: left;
+}
+.providerSelector .providerListContainer .providerList a div,
+.providerLoginWrapper .providerListContainer .providerList a div {
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  width: 133px;
+  height: 80px;
+  text-align: center;
+}
+.providerSelector .providerListContainer .providerList a img,
+.providerLoginWrapper .providerListContainer .providerList a img {
+  width: 90%;
+  height: 90%;
+  padding-top: 3px;
+}
+.providerSelector .providerListContainer .providerList a:hover div,
+.providerLoginWrapper .providerListContainer .providerList a:hover div {
+  background: #77CCF5;
+  border-color: #77CCF5;
+}

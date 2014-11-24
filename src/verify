@@ -1,0 +1,7 @@
+REQUESTOR_ID=$1
+RESOURCE_ID=$2
+SIGNATURE=$3
+VALIDATION_STR="Is token Valid? : "
+
+CLASSPATH=./verifier-1.1.1511-production.jar
+java -cp $CLASSPATH com.adobe.entitlement.test.EntitlementVerifierTest $REQUESTOR_ID "$SIGNATURE" |grep "Is token Valid? : "|sed -e 's/Is token Valid? : //'

@@ -1,0 +1,16 @@
+
+.DS_Store
+
+#IntelliJ
+.idea/
+*.iml
+atlassian-ide-plugin.xml
+
+#Grunt
+.tmp/
+node_modules/
+
+#Build
+*.zip
+dist/
+
